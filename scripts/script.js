@@ -1,23 +1,26 @@
 $(document).ready(function() {
 
     function getRandomNumber(min, max) {     //not including max
-    return Math.floor(Math.random() * (max - min)) + min;
+        return Math.floor(Math.random() * (max - min)) + min;
     }
 
-    function getTaskText(a, b) {
+    function getTaskText(a, b) {   //change task text
         $('#first-number').text(a);
         $('#second-number').text(b);
-        //$('#result').text(a + b);
     }
 
     function drawFirstCurve(a) {
         let coordOfA = a * 39;     //x coordinates of A point
-        let path = '<path d="M0 105 C 50 -10, ' + (coordOfA - 50).toString() + ' -10, ' + coordOfA.toString() + ' 105" stroke="#af0089" stroke-width="3" stroke-miterlimit="10" fill="transparent">';
-        $('#curves').append(path);
+        let path = '<path d="M0 105 C 50 -10, ' + (coordOfA - 50).toString() + ' -10, ' + coordOfA.toString() + 
+                    ' 105" stroke="#af0089" stroke-width="3" stroke-miterlimit="10" fill="transparent">';
+        $('#curves').append(path);  //append svg path element
+
+        //arrow head
         $('#curves').append('<line x1="' + coordOfA.toString() + '" y1="105" x2="' + (coordOfA - 3).toString() + '" y2="85" stroke="#af0089" stroke-width="3">');
         $('#curves').append('<line x1="' + coordOfA.toString() + '" y1="105" x2="' + (coordOfA - 15).toString() + '" y2="90" stroke="#af0089" stroke-width="3">');
+
         $('#curves').html($('#curves').html());  //resolving problem with different namespaces for html and svg
-        $('path:first').addClass('path');
+        $('path:first').addClass('path');  //animate path
 
         $('#first-number-input').show();
         $('#first-number-input').css('left', coordOfA/2 + 20)
@@ -27,13 +30,17 @@ $(document).ready(function() {
     function drawSecondCurve(a, b) {
         let coordOfA = a * 39;
         let coordOfB = coordOfA + b * 39;     //x coordinates of B point
-        let path = '<path d="M ' + coordOfA.toString() + ' 105 C ' + (coordOfA + 20).toString() + ' 25, ' + (coordOfB - 20).toString() + ' 25, ' + coordOfB.toString() + ' 105" stroke="#af0089" stroke-width="3" stroke-miterlimit="10" fill="transparent">';
-        $('#curves').append(path);
+        let path = '<path d="M ' + coordOfA.toString() + ' 105 C ' + (coordOfA + 20).toString() + ' 25, ' + (coordOfB - 20).toString() + ' 25, ' + 
+                    coordOfB.toString() + ' 105" stroke="#af0089" stroke-width="3" stroke-miterlimit="10" fill="transparent">';
+        $('#curves').append(path);  //append svg path element
+
+        //create arrow head
         $('#curves').append('<line x1="' + coordOfB.toString() + '" y1="105" x2="' + (coordOfB + 1).toString() + '" y2="85" stroke="#af0089" stroke-width="3">');
         $('#curves').append('<line x1="' + coordOfB.toString() + '" y1="105" x2="' + (coordOfB - 15).toString() + '" y2="90" stroke="#af0089" stroke-width="3">');
-        $('path:first').removeClass('path');
+
+        $('path:first').removeClass('path');  //avoid reanimate first path
         $('#curves').html($('#curves').html());  //resolving problem with different namespaces for html and svg
-        $('path:last').addClass('path');
+        $('path:last').addClass('path');  //animate second path
         
 
         $('#second-number-input').show();
@@ -41,9 +48,9 @@ $(document).ready(function() {
         $('#second-number-input').css('top',  -85);
     }
 
-    $(':input[type="text"]').on('input', function() {
+    $(':input[type="text"]').on('input', function() {   //input event handler for all inputs
         if(this.id === 'first-number-input') {
-            if($(this).val() !== a.toString()) {
+            if($(this).val() !== a.toString()) {   //check input value
                 $('#first-number-input').css('color',  'red');
                 $('#first-number').css('background',  '#ffa844');
             }
