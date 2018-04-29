@@ -55,11 +55,11 @@ $(document).ready(function() {
             });
     }
 
-    $(':input[type="text"]').on('input', function() { 
+    $(':input[type="text"]').on('input', function() {       //input event handler for all inputs
         $thisObj = $(this);  
         $resultInput = $('#result-input');
 
-        if(this.id === 'first-number-input') {      //input event handler for all inputs
+        if(this.id === 'first-number-input') {
             if($thisObj.val() !== a.toString()) {           //check input value
                 $firstNumberInput.css('color',  'red');
                 $firstNumber.css('background',  '#ffa844');
