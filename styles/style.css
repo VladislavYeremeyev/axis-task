@@ -3,26 +3,31 @@
 }
 
 #task {
-    display: flex;
-    justify-content: center;
+    /* display: flex;
+    justify-content: center; */
     font-family: sans-serif;
     font-size: 45px;
-    margin-top: 55px;
-    width: 100%;
+    /* margin: 55px auto 0px; */
+    /* margin: 0 auto;
+    width: 200px; */
+    text-align: center;
+    margin-top: 50px;
 }
 
 #axis {
-    display: flex;
-    justify-content: center;
-    margin-top: 180px;
-    width: 100%;
+    /* display: flex;
+    justify-content: center; */
+    /* margin: 180px auto 0; */
+    margin: 100px auto 0;
+    width: 880px;
 }
 
 svg {
-    position: absolute;
-    top: 200px;
-    width: 805px;
-    height: 300px;
+    /* position: absolute;
+    top: 200px; */
+    width: 875px;
+    height: 167px;
+    background: url('../sprite.png') no-repeat bottom left;
 }
 
 #first-number,

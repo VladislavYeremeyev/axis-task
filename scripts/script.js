@@ -10,8 +10,8 @@ $(document).ready(function() {
     }
 
     function drawFirstCurve(a) {
-        let coordOfA = a * 39;     //x coordinates of A point
-        let path = '<path d="M0 105 C 50 -10, ' + (coordOfA - 50).toString() + ' -10, ' + coordOfA.toString() + 
+        let coordOfA = a * 39 + 35;     //x coordinates of A point
+        let path = '<path d="M36 105 C 86 -10, ' + (coordOfA - 50).toString() + ' -10, ' + coordOfA.toString() + 
                     ' 105" stroke="#af0089" stroke-width="3" stroke-miterlimit="10" fill="transparent">';
         $('#curves').append(path);  //append svg path element
 
@@ -23,20 +23,20 @@ $(document).ready(function() {
         $('path:first').addClass('path');  //animate path
 
         $('#first-number-input').show();
-        $('#first-number-input').css('left', coordOfA/2 + 20)
-        $('#first-number-input').css('top',  -110);
+        $('#first-number-input').css('left', coordOfA/2)
+        $('#first-number-input').css('top',  -25);
     }
 
     function drawSecondCurve(a, b) {
-        let coordOfA = a * 39;
+        let coordOfA = a * 39 + 35;
         let coordOfB = coordOfA + b * 39;     //x coordinates of B point
         let path = '<path d="M ' + coordOfA.toString() + ' 105 C ' + (coordOfA + 20).toString() + ' 25, ' + (coordOfB - 20).toString() + ' 25, ' + 
                     coordOfB.toString() + ' 105" stroke="#af0089" stroke-width="3" stroke-miterlimit="10" fill="transparent">';
         $('#curves').append(path);  //append svg path element
 
         //create arrow head
-        $('#curves').append('<line x1="' + coordOfB.toString() + '" y1="105" x2="' + (coordOfB + 1).toString() + '" y2="85" stroke="#af0089" stroke-width="3">');
-        $('#curves').append('<line x1="' + coordOfB.toString() + '" y1="105" x2="' + (coordOfB - 15).toString() + '" y2="90" stroke="#af0089" stroke-width="3">');
+        $('#curves').append('<line x1="' + coordOfB.toString() + '" y1="105" x2="' + (coordOfB).toString() + '" y2="85" stroke="#af0089" stroke-width="3">');
+        $('#curves').append('<line x1="' + coordOfB.toString() + '" y1="105" x2="' + (coordOfB - 13).toString() + '" y2="90" stroke="#af0089" stroke-width="3">');
 
         $('path:first').removeClass('path');  //avoid reanimate first path
         $('#curves').html($('#curves').html());  //resolving problem with different namespaces for html and svg
@@ -44,8 +44,8 @@ $(document).ready(function() {
         
 
         $('#second-number-input').show();
-        $('#second-number-input').css('left', (coordOfB + coordOfA)/2 + 20);
-        $('#second-number-input').css('top',  -85);
+        $('#second-number-input').css('left', coordOfA + (coordOfB - coordOfA) / 2 - 17);
+        $('#second-number-input').css('top', 5);
     }
 
     $(':input[type="text"]').on('input', function() {   //input event handler for all inputs
@@ -55,7 +55,7 @@ $(document).ready(function() {
                 $('#first-number').css('background',  '#ffa844');
             }
             else {
-                $(this).replaceWith('<span class="number-completed" style="left: ' + (a * 39 / 2 + 30).toString() + 'px; top: -100px;">' + a + '</span>');
+                $(this).replaceWith('<span class="number-completed" style="left: ' + (a * 39 / 2 + 30).toString() + 'px; top: -15px;">' + a + '</span>');
                 $('#first-number').css('background',  'none');
                 drawSecondCurve(a, b);
             }
@@ -66,7 +66,7 @@ $(document).ready(function() {
                 $('#second-number').css('background',  '#ffa844');
             }
             else {
-                $(this).replaceWith('<span class="number-completed" style="left: ' + ((a + b/2) * 39 + 30).toString() + 'px; top: -75px;">' + b + '</span>');
+                $(this).replaceWith('<span class="number-completed" style="left: ' + ((a + b/2) * 39 + 30).toString() + 'px; top: 10px;">' + b + '</span>');
                 $('#second-number').css('background',  'none');
                 $('#result').hide();
                 $('#result-input').show();
