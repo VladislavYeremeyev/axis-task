@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="styles/style.css">
+</head>
+<body>
+    <div id="app">
+        <div id="task">
+            <span>
+                <span id="first-number"></span> 
+                +
+                <span id="second-number"></span>
+                =
+                <span id="result">?</span>
+                <input id="result-input" type="text">
+            </span>
+        </div>
+        <div id="axis">
+            <div style="position: relative">
+                <input type="text" class="number-input" id="first-number-input" name="first-number-input">
+                <input type="text" class="number-input" id="second-number-input" name="second-number-input">               
+            </div>
+            <img src="sprite.png">
+            <svg id="curves" xmlns="http://www.w3.org/2000/svg">
+            </svg>
+        </div>
+    </div>
+    <script
+        src="https://code.jquery.com/jquery-3.3.1.min.js"
+        integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+        crossorigin="anonymous">
+    </script>
+    <script src="scripts/script.js"></script>
+</body>
+</html>

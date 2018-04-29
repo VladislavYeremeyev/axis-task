@@ -1,0 +1,70 @@
+#task {
+    display: flex;
+    justify-content: center;
+    font-family: sans-serif;
+    font-size: 45px;
+    margin-top: 55px;
+}
+
+#axis {
+    display: flex;
+    justify-content: center;
+    margin-top: 180px;
+}
+
+svg {
+    position: absolute;
+    top: 200px;
+    width: 805px;
+    height: 300px;
+}
+
+#first-number,
+#second-number {
+    padding: 1px 5px;
+    border-radius: 3px;
+}
+
+.number-input {
+    position: absolute;
+    width: 30px;
+    text-align: center;
+    font-family: sans-serif;
+    font-size: 20px; 
+    border-radius: 3px;
+    z-index: 1;
+}
+
+#result-input {
+    width: 70px;
+    height: 40px;
+    text-align: center;
+    font-family: sans-serif;
+    font-size: 45px; 
+    border-radius: 5px;
+}
+
+.number-input,
+#result-input {
+    display: none;
+}
+
+.number-completed {
+    position: absolute;
+    font-size: 20px;
+}
+
+.path {
+    stroke-dasharray: 1000;
+    stroke-dashoffset: 1000;
+    animation: dash 4s linear forwards 1;
+}
+
+@keyframes dash {
+    from {
+      stroke-dashoffset: 1000;
+    }
+    to {
+      stroke-dashoffset: 0;
+    }
+}
