@@ -1,2 +1,1 @@
-# VladislavYeremeyev.github.io
-Test task
+Test task with a numeric axis and arcs
